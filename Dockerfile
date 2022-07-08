@@ -11,7 +11,7 @@ RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
     && unzip Microsoft365_E5_Renew_X.zip -d /renewx \
     && rm -rf Microsoft365_E5_Renew_X.zip \
     && cd Deploy \
-    && openssl pkcs12 -passout pass: -export -out example.pfx -inkey example.key -in example.pem -certfile example.crt
+    && openssl pkcs12 -passout pass: -export -out 365.frep.ml.pfx -inkey example.key -in example.pem -certfile 365.frep.ml.crt
 
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
 
