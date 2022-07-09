@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS ontology
 
+COPY Microsoft365_E5_Renew_X.zip /tmp/Microsoft365_E5_Renew_X.zip
+
 WORKDIR /renewx
 
 
@@ -7,7 +9,7 @@ RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
     && sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
     && apt update \
     && apt install -y wget unzip\
-    && wget https://github.com/freml/MS365_E5_RenewX/raw/main/Microsoft365_E5_Renew_X.zip \
+    && mv /tmp/Microsoft365_E5_Renew_X.zip /renewx/Microsoft365_E5_Renew_X.zip \
     && unzip Microsoft365_E5_Renew_X.zip -d /renewx \
     && rm -rf Microsoft365_E5_Renew_X.zip
 
